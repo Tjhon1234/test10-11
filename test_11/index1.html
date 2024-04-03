@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Смена темы</title>
+  <style>
+    body.dark {
+      background: #24292E;
+    }
+
+    .task-item.dark {
+      color: #ffff;
+    }
+
+    .button.dark {
+      border: 1px solid #fffff;
+    }
+  </style>
+</head>
+<body>
+  <button id="theme-toggle">Tab</button>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const taskItems = document.getElementsByClassName('task-item');
+    const buttons = document.getElementsByTagName('button');
+
+    let isDarkTheme = false;
+
+    themeToggle.addEventListener('click', function() {
+      isDarkTheme = !isDarkTheme;
+
+      if (isDarkTheme) {
+        body.classList.add('dark');
+      } else {
+        body.classList.remove('dark');
+      }
+
+      for (let i = 0; i < taskItems.length; i++) {
+        if (isDarkTheme) {
+          taskItems[i].classList.add('dark');
+        } else {
+          taskItems[i].classList.remove('dark');
+        }
+      }
+
+      for (let i = 0; i < buttons.length; i++) {
+        if (isDarkTheme) {
+          buttons[i].classList.add('dark');
+        } else {
+          buttons[i].classList.remove('dark');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
